@@ -23,8 +23,9 @@ class UzytkownikMenager
     bool czyIstniejeLogin (string login);
 
 
+
 public:
     void rejestracjaUzytkownika ();
-
+    void wczytajUzytkownikowZPliku ();
 };
 #endif

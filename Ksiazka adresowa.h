@@ -13,6 +13,7 @@ class KsiazkaAdresowa
 UzytkownikMenager uzytkownikMenager;
 
 public:
+    KsiazkaAdresowa ();
     void rejestracjaUzytkownika();
 };
 #endif
