@@ -56,7 +56,7 @@ void UzytkownikMenager::wczytajUzytkownikowZPliku ()
 {
  uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
 }
-void UzytkownikMenager::zapiszWszystkichUzytkownikowDoPliku(vector<Uzytkownik>uzytkownicy)
+void UzytkownikMenager::zapiszWszystkichUzytkownikowDoPliku(vector <Uzytkownik> &uzytkownicy)
 {
     plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
 }
@@ -93,6 +93,12 @@ int UzytkownikMenager::logowanieUzytkownika()
     system("pause");
     return 0;
 }
+
+int UzytkownikMenager::wylogowanieUzytkownika ()
+    {
+        uzytkownicy.clear();
+        return idZalogowanegoUzytkownika=0;
+    }
 
 void UzytkownikMenager::zmianaHaslaZalogowanegoUzytkownika()
 {

@@ -13,6 +13,10 @@ void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika()
 {
     uzytkownikMenager.zmianaHaslaZalogowanegoUzytkownika();
 }
+int KsiazkaAdresowa::wylogowanieUzytkownika ()
+{
+    uzytkownikMenager.wylogowanieUzytkownika();
+}
 
 
 

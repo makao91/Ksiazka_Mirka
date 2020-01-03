@@ -20,5 +20,6 @@ public:
     void rejestracjaUzytkownika();
     int logowanieUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
+    int wylogowanieUzytkownika ();
 };
 #endif
