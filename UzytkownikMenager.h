@@ -27,5 +27,7 @@ public:
     void rejestracjaUzytkownika ();
     void wczytajUzytkownikowZPliku ();
     int logowanieUzytkownika();
+    void zmianaHaslaZalogowanegoUzytkownika();
+    void zapiszWszystkichUzytkownikowDoPliku(vector<Uzytkownik>uzytkownicy);
 };
 #endif
