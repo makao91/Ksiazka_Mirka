@@ -5,9 +5,10 @@ using namespace std;
 
 int main()
 {
-    KsiazkaAdresowa ksiazkaAdresowa ("Uzytkownicy2");
-
+    int ID;
+    KsiazkaAdresowa ksiazkaAdresowa ("Uzytkownicy.txt");
     ksiazkaAdresowa.rejestracjaUzytkownika();
     ksiazkaAdresowa.rejestracjaUzytkownika();
+ksiazkaAdresowa.logowanieUzytkownika();
     return 0;
 }
