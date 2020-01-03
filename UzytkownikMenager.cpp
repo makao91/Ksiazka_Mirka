@@ -56,6 +56,10 @@ void UzytkownikMenager::wczytajUzytkownikowZPliku ()
 {
  uzytkownicy = plikZUzytkownikami.wczytajUzytkownikowZPliku();
 }
+void UzytkownikMenager::zapiszWszystkichUzytkownikowDoPliku(vector<Uzytkownik>uzytkownicy)
+{
+    plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
+}
 
 int UzytkownikMenager::logowanieUzytkownika()
 {
@@ -77,7 +81,7 @@ int UzytkownikMenager::logowanieUzytkownika()
                 {
                     cout << endl << "Zalogowales sie." << endl << endl;
                     system("pause");
-                    return uzytkownicy[i].pobierzId();
+                    return idZalogowanegoUzytkownika=uzytkownicy[i].pobierzId();
                 }
             }
             cout << "Wprowadzono 3 razy bledne haslo." << endl;
@@ -90,3 +94,20 @@ int UzytkownikMenager::logowanieUzytkownika()
     return 0;
 }
 
+void UzytkownikMenager::zmianaHaslaZalogowanegoUzytkownika()
+{
+    string noweHaslo = "";
+    cout << "Podaj nowe haslo: ";
+    noweHaslo = MetodyPomocnicze::wczytajLinie();
+
+    for (int i=0; uzytkownicy.size()>i; i++)
+    {
+        if (uzytkownicy[i].pobierzId() == idZalogowanegoUzytkownika)
+        {
+            uzytkownicy[i].ustawHaslo(noweHaslo);
+            cout << "Haslo zostalo zmienione." << endl << endl;
+            system("pause");
+        }
+    }
+    zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
+}
