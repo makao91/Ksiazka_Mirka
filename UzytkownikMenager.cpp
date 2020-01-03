@@ -2,6 +2,7 @@
 
 void UzytkownikMenager::rejestracjaUzytkownika()
 {
+    system("cls");
      Uzytkownik uzytkownik = podajDaneNowegoUzytkownika();
 
     uzytkownicy.push_back(uzytkownik);
@@ -10,6 +11,7 @@ void UzytkownikMenager::rejestracjaUzytkownika()
 
     cout << endl << "Konto zalozono pomyslnie" << endl << endl;
     system("pause");
+
 }
 
 Uzytkownik UzytkownikMenager::podajDaneNowegoUzytkownika()

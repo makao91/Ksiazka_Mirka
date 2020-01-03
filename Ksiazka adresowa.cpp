@@ -5,7 +5,7 @@ void KsiazkaAdresowa::rejestracjaUzytkownika()
 {
         uzytkownikMenager.rejestracjaUzytkownika();
 }
-int KsiazkaAdresowa::logowanieUzytkownika()
+void KsiazkaAdresowa::logowanieUzytkownika()
 {
     uzytkownikMenager.logowanieUzytkownika();
 }
@@ -13,11 +13,14 @@ void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika()
 {
     uzytkownikMenager.zmianaHaslaZalogowanegoUzytkownika();
 }
-int KsiazkaAdresowa::wylogowanieUzytkownika ()
+void KsiazkaAdresowa::wylogowanieUzytkownika ()
 {
     uzytkownikMenager.wylogowanieUzytkownika();
 }
-
+int KsiazkaAdresowa::idZalogowanegoUzytkownika()
+{
+    return uzytkownikMenager.idZalogowanegoUzytkownika;
+}
 
 
 
