@@ -25,10 +25,8 @@ void KsiazkaAdresowa::dodajAdresata(int idUzytkownika)
 {
     adresatMenadzer.dodajAdresata(idUzytkownika);
 }
-//void KsiazkaAdresowa::wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika)
-//{
-      ////adresatMenadzer.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
-//}
-
-
+void KsiazkaAdresowa::wyswietlWszystkichAdresatow(int idUzytkownika)
+{
+    adresatMenadzer.wyswietlWszystkichAdresatow(idUzytkownika);
+}
 
