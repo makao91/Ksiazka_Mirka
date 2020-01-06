@@ -1,6 +1,6 @@
 #include <iostream>
 #include<conio.h>
-#include "Ksiazka Adresowa.h"
+#include "KsiazkaAdresowa.h"
 
 using namespace std;
 
@@ -10,11 +10,14 @@ char wybierzOpcjeZMenuUzytkownika();
 int main()
 {
     char wybor;
-     KsiazkaAdresowa ksiazkaAdresowa ("Uzytkownicy.txt");
+    int identyfikatorUzytkownika=0;
+
 
     while (true)
     {
-        if (ksiazkaAdresowa.idZalogowanegoUzytkownika() == 0)
+        KsiazkaAdresowa ksiazkaAdresowa ("Uzytkownicy.txt", "Adresaci.txt");
+
+        if (identyfikatorUzytkownika== 0)
         {
             wybor = wybierzOpcjeZMenuGlownego();
 
@@ -24,7 +27,8 @@ int main()
                 ksiazkaAdresowa.rejestracjaUzytkownika();
                 break;
             case '2':
-                ksiazkaAdresowa.logowanieUzytkownika();
+                identyfikatorUzytkownika=ksiazkaAdresowa.logowanieUzytkownika();
+                //ksiazkaAdresowa.wczytajAdresatowZalogowanegoUzytkownikaZPliku(identyfikatorUzytkownika);
                 break;
             case '9':
                 exit(0);
@@ -37,19 +41,12 @@ int main()
         }
         else
         {
-
-           // if (adresaci.empty() == true)
-                // Pobieramy idOstatniegoAdresata, po to aby zoptymalizowac program.
-                // Dzieki temu, kiedy uztykwonik bedzie dodawal nowego adresata
-                // to nie bedziemy musieli jeszcze raz ustalac idOstatniegoAdresata
-                //idOstatniegoAdresata = wczytajAdresatowZalogowanegoUzytkownikaZPliku(adresaci, idZalogowanegoUzytkownika);
-
             wybor = wybierzOpcjeZMenuUzytkownika();
 
             switch (wybor)
             {
             case '1':
-
+                ksiazkaAdresowa.dodajAdresata(identyfikatorUzytkownika);
                 break;
             case '2':
 
@@ -70,7 +67,7 @@ int main()
                 ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
                 break;
             case '8':
-                ksiazkaAdresowa.wylogowanieUzytkownika();
+                identyfikatorUzytkownika=ksiazkaAdresowa.wylogowanieUzytkownika();
                 break;
             }
         }
