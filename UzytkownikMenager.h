@@ -17,17 +17,18 @@ class UzytkownikMenager
 
     vector <Uzytkownik> uzytkownicy;
     PlikZUzytkownikami plikZUzytkownikami;
-
+    int idZalogowanegoUzytkownika;
     Uzytkownik podajDaneNowegoUzytkownika ();
-    int pobierzIdNowegoUzytkownika ();
+
     bool czyIstniejeLogin (string login);
 
 public:
-    int idZalogowanegoUzytkownika;
-    UzytkownikMenager (string nazwaPlikuZuzytkownikami) : plikZUzytkownikami(nazwaPlikuZuzytkownikami)
+
+    UzytkownikMenager ( string nazwaPlikuZuzytkownikami) : plikZUzytkownikami(nazwaPlikuZuzytkownikami)
     {
-        idZalogowanegoUzytkownika=0;
+
     };
+    int pobierzIdNowegoUzytkownika ();
     void rejestracjaUzytkownika ();
     void wczytajUzytkownikowZPliku ();
     int logowanieUzytkownika();

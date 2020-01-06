@@ -2,7 +2,7 @@
 #define ADRESAT_H
 
 #include <iostream>
-#include "UzytkownikMenager.h"
+
 
 using namespace std;
 
@@ -16,9 +16,10 @@ class Adresat
     string email;
     string adres;
 
-    UzytkownikMenager uzytkownikMenager;
+
 
     public:
+
 
     void ustawId(int noweId);
     void ustawIdUzytkownika(int noweIdUzytkownika);

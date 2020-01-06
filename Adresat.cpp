@@ -6,9 +6,9 @@ void Adresat::ustawId(int noweId)
 }
 void Adresat::ustawIdUzytkownika(int noweIdUzytkownika)
 {
-    noweIdUzytkownika=uzytkownikMenager.idZalogowanegoUzytkownika;
     idUzytkownika = noweIdUzytkownika;
 }
+
 void Adresat::ustawImie(string noweImie)
 {
     imie = noweImie;
