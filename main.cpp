@@ -55,7 +55,7 @@ int main()
 
                 break;
             case '4':
-
+                ksiazkaAdresowa.wyswietlWszystkichAdresatow(identyfikatorUzytkownika);
                 break;
             case '5':
 

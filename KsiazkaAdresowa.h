@@ -25,6 +25,6 @@ public:
     int wylogowanieUzytkownika ();
     int idZalogowanegoUzytkownika();
     void dodajAdresata (int idUzytkownika);
-    //void wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
+    void wyswietlWszystkichAdresatow(int idUzytkownika);
 };
 #endif

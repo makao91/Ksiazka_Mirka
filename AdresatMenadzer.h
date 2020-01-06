@@ -18,7 +18,8 @@ class AdresatMenadzer
     PlikZAdresatami plikZAdresatami;
     int idOstatniegoAdresata;
     Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika);
-    //int pobierzIdNowegoAdresata();
+
+    void wyswietlDaneAdresata(Adresat adresat);
 
 public:
     AdresatMenadzer (string nazwaPlikuZAdresatami) : plikZAdresatami (nazwaPlikuZAdresatami)
@@ -27,6 +28,6 @@ public:
     };
 
 void dodajAdresata(int idZalogowanegoUzytkownika);
-//void wczytajAdresatowZalogowanegoUzytkownikaZPliku(int idZalogowanegoUzytkownika);
+void wyswietlWszystkichAdresatow(int idZalogowanegoUzytkownika);
 };
 #endif
