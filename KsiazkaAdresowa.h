@@ -12,19 +12,29 @@ class KsiazkaAdresowa
 {
 
 UzytkownikMenager uzytkownikMenager;
-AdresatMenadzer adresatMenadzer;
+AdresatMenadzer *adresatMenadzer;
+const string NAZWA_PLIKU_Z_ADRESATAMI;
 
 public:
-    KsiazkaAdresowa ( string nazwaPlikuZuzytkownikami, string nazwaPlikuZAdresatami) : uzytkownikMenager(nazwaPlikuZuzytkownikami), adresatMenadzer(nazwaPlikuZAdresatami)
+    KsiazkaAdresowa ( string nazwaPlikuZuzytkownikami, string nazwaPlikuZAdresatami) : uzytkownikMenager(nazwaPlikuZuzytkownikami), NAZWA_PLIKU_Z_ADRESATAMI(nazwaPlikuZAdresatami)
     {
-        uzytkownikMenager.wczytajUzytkownikowZPliku ();
+        adresatMenadzer = NULL;
     };
+    ~KsiazkaAdresowa()
+    {
+      delete adresatMenadzer;
+      adresatMenadzer = NULL;
+    };
+
     void rejestracjaUzytkownika();
-    int logowanieUzytkownika();
+    void logowanieUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
-    int wylogowanieUzytkownika ();
+    void wylogowanieUzytkownika ();
     int idZalogowanegoUzytkownika();
-    void dodajAdresata (int idUzytkownika);
-    void wyswietlWszystkichAdresatow(int idUzytkownika);
+    void dodajAdresata ();
+    void wyswietlWszystkichAdresatow();
+    vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+    bool czyUzytkownikZalogowany();
+
 };
 #endif
