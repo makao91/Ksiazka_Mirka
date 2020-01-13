@@ -1,7 +1,7 @@
 #include "PlikZAdresatami.h"
 
 
-void PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
+bool PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
 {
     string liniaZDanymiAdresata = "";
     fstream plikTekstowy;
@@ -11,13 +11,13 @@ void PlikZAdresatami::dopiszAdresataDoPliku(Adresat adresat)
     {
         liniaZDanymiAdresata = zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(adresat);
         plikTekstowy << liniaZDanymiAdresata << endl;
-    }
-    else
-    {
-        cout << "Nie udalo sie otworzyc pliku i zapisac w nim danych." << endl;
-    }
+
+    idOstatniegoAdresata++;
     plikTekstowy.close();
     system("pause");
+    return true;
+    }
+    return false;
 }
 string PlikZAdresatami::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat)
 {
@@ -37,7 +37,7 @@ vector <Adresat> PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(
 {
     Adresat adresat;
     vector <Adresat> adresaci;
-    idOstatniegoAdresataZwczytanegoPliku = 1;
+
     string daneJednegoAdresataOddzielonePionowymiKreskami = "";
     string daneOstaniegoAdresataWPliku = "";
     fstream plikTekstowy;
@@ -45,24 +45,29 @@ vector <Adresat> PlikZAdresatami::wczytajAdresatowZalogowanegoUzytkownikaZPliku(
 
     if (plikTekstowy.good() == true)
     {
+
         while (getline(plikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami))
-        {
+        {cout<<idOstatniegoAdresata;
+    system("pause");
             if(idZalogowanegoUzytkownika == pobierzIdUzytkownikaZDanychOddzielonychPionowymiKreskami(daneJednegoAdresataOddzielonePionowymiKreskami))
             {
                 adresat = pobierzDaneAdresata(daneJednegoAdresataOddzielonePionowymiKreskami);
                 adresaci.push_back(adresat);
+
             }
+            idOstatniegoAdresata++;
         }
         daneOstaniegoAdresataWPliku = daneJednegoAdresataOddzielonePionowymiKreskami;
     }
-    else
-        cout << "Nie udalo sie otworzyc pliku i wczytac danych." << endl;
+   // else
+        //cout << "Nie udalo sie otworzyc pliku i wczytac danych." << endl;
 
     plikTekstowy.close();
 
+
     if (daneOstaniegoAdresataWPliku != "")
     {
-        idOstatniegoAdresataZwczytanegoPliku = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneOstaniegoAdresataWPliku);
+        idOstatniegoAdresata = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneOstaniegoAdresataWPliku);
         return adresaci;
     }
     else
@@ -124,10 +129,11 @@ int PlikZAdresatami::pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(strin
 {
     int pozycjaRozpoczeciaIdAdresata = 0;
     int idAdresata = MetodyPomocnicze::konwersjaStringNaInt(MetodyPomocnicze::pobierzLiczbe(daneJednegoAdresataOddzielonePionowymiKreskami, pozycjaRozpoczeciaIdAdresata));
+        cout<<idAdresata;
+    system("pause");
     return idAdresata;
 }
-//int PlikZAdresatami::pobierzIdOstatniegoAdresata (int idAdresatadoPobrania)
-//
- //   idAdresatadoPobrania = idOstatniegoAdresataZwczytanegoPliku;
- //   return idAdresatadoPobrania;
-//}
+int PlikZAdresatami::pobierzIdOstatniegoAdresata ()
+{
+    return idOstatniegoAdresata;
+}

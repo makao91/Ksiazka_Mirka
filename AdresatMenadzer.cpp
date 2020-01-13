@@ -1,24 +1,29 @@
 #include "AdresatMenadzer.h"
 
 
-void AdresatMenadzer::dodajAdresata(int idZalogowanegoUzytkownika)
+void AdresatMenadzer::dodajAdresata()
 {
     system("cls");
     cout << " >>> DODAWANIE NOWEGO ADRESATA <<<" << endl << endl;
 
-    Adresat adresat = podajDaneNowegoAdresata(idZalogowanegoUzytkownika);
+    Adresat adresat = podajDaneNowegoAdresata();
 
     adresaci.push_back(adresat);
-    plikZAdresatami.dopiszAdresataDoPliku(adresat);
+    if (plikZAdresatami.dopiszAdresataDoPliku(adresat))
+        cout<<"Nowy adresat zostal dodany"<<endl;
+    else
+    cout<<"Blad. Nie udaøo sie dodac nowego adresata do pliku"<<endl;
+    system("pause");
+
   }
-Adresat AdresatMenadzer::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika)
+Adresat AdresatMenadzer::podajDaneNowegoAdresata()
 {
     Adresat adresat;
-    adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
 
-    adresat.ustawId(adresaci.size()+1);
 
-    adresat.ustawIdUzytkownika(idZalogowanegoUzytkownika);
+    adresat.ustawId((plikZAdresatami.pobierzIdOstatniegoAdresata()+1));
+
+    adresat.ustawIdUzytkownika(ID_ZALOGOWANEGO_UZYTKOWNIKA);
 
     cout << "Podaj imie: ";
     adresat.ustawImie(MetodyPomocnicze::wczytajLinie());
@@ -39,9 +44,9 @@ Adresat AdresatMenadzer::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika)
 
     return adresat;
 }
-void AdresatMenadzer::wyswietlWszystkichAdresatow(int idZalogowanegoUzytkownika)
+void AdresatMenadzer::wyswietlWszystkichAdresatow()
 {
-    adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(idZalogowanegoUzytkownika);
+    adresaci = plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
     system("cls");
     if (!adresaci.empty())
     {
@@ -67,4 +72,8 @@ void AdresatMenadzer::wyswietlDaneAdresata(Adresat adresat)
     cout << "Numer telefonu:     " << adresat.pobierzNumerTelefonu() << endl;
     cout << "Email:              " << adresat.pobierzEmail()<< endl;
     cout << "Adres:              " << adresat.pobierzAdres() << endl;
+}
+vector <Adresat> AdresatMenadzer::wczytajAdresatowZalogowanegoUzytkownikaZPliku()
+{
+   return plikZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
 }
