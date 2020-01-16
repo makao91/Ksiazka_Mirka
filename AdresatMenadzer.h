@@ -19,6 +19,8 @@ class AdresatMenadzer
     PlikZAdresatami plikZAdresatami;
     Adresat podajDaneNowegoAdresata();
     void wyswietlDaneAdresata(Adresat adresat);
+    void wyswietlIloscWyszukanychAdresatow(int iloscAdresatow);
+    char wybierzOpcjeZMenuEdycja();
 
 public:
     AdresatMenadzer (string nazwaPlikuZAdresatami, int idZalogowanegoUzytkownika) : plikZAdresatami (nazwaPlikuZAdresatami), ID_ZALOGOWANEGO_UZYTKOWNIKA(idZalogowanegoUzytkownika)
@@ -29,5 +31,9 @@ public:
 void dodajAdresata();
 void wyswietlWszystkichAdresatow();
 vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+void wyszukajAdresatowPoImieniu();
+void wyszukajAdresatowPoNazwisku();
+void usunAdresata();
+void edytujAdresata();
 };
 #endif

@@ -35,6 +35,11 @@ public:
     void wyswietlWszystkichAdresatow();
     vector <Adresat> wczytajAdresatowZalogowanegoUzytkownikaZPliku();
     bool czyUzytkownikZalogowany();
+    void wyszukajAdresatowPoImieniu();
+    void wyszukajAdresatowPoNazwisku();
+    void usunAdresata();
+    void edytujAdresata();
+
 
 };
 #endif

@@ -16,10 +16,7 @@ class Adresat
     string email;
     string adres;
 
-
-
     public:
-
 
     void ustawId(int noweId);
     void ustawIdUzytkownika(int noweIdUzytkownika);

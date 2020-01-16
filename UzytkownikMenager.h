@@ -19,7 +19,6 @@ class UzytkownikMenager
     PlikZUzytkownikami plikZUzytkownikami;
     int idZalogowanegoUzytkownika;
     Uzytkownik podajDaneNowegoUzytkownika ();
-
     bool czyIstniejeLogin (string login);
 
 public:
