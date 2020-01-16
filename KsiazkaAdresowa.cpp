@@ -59,3 +59,19 @@ bool KsiazkaAdresowa::czyUzytkownikZalogowany()
     return uzytkownikMenager.czyUzytkownikJestZalogowany();
 
 }
+void KsiazkaAdresowa::wyszukajAdresatowPoImieniu()
+{
+    adresatMenadzer->wyszukajAdresatowPoImieniu();
+}
+void KsiazkaAdresowa::wyszukajAdresatowPoNazwisku()
+{
+    adresatMenadzer->wyszukajAdresatowPoNazwisku();
+}
+void KsiazkaAdresowa::usunAdresata()
+{
+    adresatMenadzer->usunAdresata();
+}
+void KsiazkaAdresowa::edytujAdresata()
+{
+    adresatMenadzer->edytujAdresata();
+}
